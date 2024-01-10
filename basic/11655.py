@@ -3,22 +3,26 @@
 
 def ROT13(a):
     a=ord(a)
-    print(a)
-    if(a>=65 and a<=90 and a+13 > 90):
-        print(1)
-        return a+(a-77)
-    elif(a>=65 and a<=90):
-        print(2)
-        return a+13
-    elif(a>=97 and a<=122 and a+13 > 122):
-        print(3)
-        return a+(a-109)
-    elif(a>=65 and a<=90):
-        print(4)
-        return a+13
+    if 65 <= a <= 90: 
+        if (a+13>90):
+            return chr(65+(a-78))
+        else:
+            return chr(a+13)
+    elif 97 <= a <= 122: 
+        if (a+13>122):
+            return chr(97+(a-110))
+        else:
+            return chr(a+13)
+    else:
+        return chr(a)
+
+        
     
 S = input()
 
+result = ""
 for i in range(len(S)):
-    sibal = ROT13(S[i])
-    print(sibal)
+    Y = ROT13(S[i])
+    result = result+Y
+
+print(result)
